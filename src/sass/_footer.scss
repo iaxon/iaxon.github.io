@@ -1,0 +1,41 @@
+@import '_colors.scss';
+
+.Footer{
+    background-color: $color-light;
+    height:8vh;
+    width:100%;
+    margin:0;
+    position: relative;
+    color:$dark-text;
+    align-items: center;
+    right: 0vw;
+    font-size: 15pt;
+    text-decoration: none;
+    a:link{
+        color:$dark-text;
+        right: 0vw;
+        text-decoration: none;
+        
+    }
+    a:visited{
+        color: $dark-text;
+    }
+    a:hover{
+        color: $color-highlight3;
+    }
+    
+
+    
+}
+.FooterContent{
+    position:absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+
+}
+.ph{
+    display:inline-block;
+    width:3.5vw;
+}
