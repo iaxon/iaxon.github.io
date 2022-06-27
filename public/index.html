@@ -1,0 +1,151 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="./css/styles.css">
+
+</head>
+
+<body>
+
+    <div class="Navigation">
+        <ul>
+            <li><a class="" href="#about">&Uumlber</a></li>
+            <li><a class="" href="#portfolio">Portfolio</a></li>
+            <li><a class="" href="#warumwir">Warum wir</a></li>
+            <li><a class="" href="#kontakt">Kontakt</a></li>
+        </ul>
+
+    </div>
+    <div class="Section" id="about">
+        <div class="Content">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+            sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+        </div>
+    </div>
+    <div class="Section" id="portfolio">
+        <div class="bg-decoration"></div>
+        <div class="CardWrapper">
+            <div class="Card"><i>//TODO</i></div>
+            <div class="Card"><i>//TODO</i></div>
+            <div class="Card"><i>//TODO</i></div>
+            <div class="Card"><i>//TODO</i></div>
+        </div>
+    </div>
+    <div class="Section" id="warumwir">
+        <div class="bg-decoration"></div>
+        <div class="Content">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+            sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+        </div>
+    </div>
+    <div class="Section" id="kontakt">
+        <div class="Card">
+            <table>
+                <tr>
+                    <th>John Doe</th>
+                    <th>lelele</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>+491234090897</th>
+                </tr>
+            </table>
+
+            <button>Email schreiben</button>
+        </div>
+    </div>
+    <div class="Footer">
+        <div class="FooterContent">
+            <a href="findenmanchewichtig.html">Datenschutz</a>
+            <div class="ph"></div>
+            <a href="auchnochwichtig.html">Impressum</a>
+            <div class="ph"></div>
+            &#169; 2022 Jakob Ferch
+        </div>
+
+    </div>
+    <script>
+        
+        window.onload = function(){
+
+            let m = new Map([["about", percentWithinViewport(document.getElementById("about"))],
+            ["portfolio", percentWithinViewport(document.getElementById("portfolio"))],
+            ["warumwir", percentWithinViewport(document.getElementById("warumwir"))],
+            ["kontakt", percentWithinViewport(document.getElementById("kontakt"))]
+
+        ]);
+        
+
+        f = [...m.entries()].reduce((a, e ) => e[1] > a[1] ? e : a);
+        currentElement = document.querySelector('[href="#' + f[0] + '"]');
+        currentElement.setAttribute("class", "active");
+        console.log("loaded");
+        }
+        var percentWithinViewport = function (element) {
+
+            var elementTop = element.offsetTop;
+            var scrollTop = window.scrollY;
+            var spaceTop = elementTop - scrollTop;
+            var elementHeight = element.offsetHeight;
+            var screenHeight = window.innerHeight;
+            var scrollBottom = scrollTop + screenHeight;
+            var bottomElement = elementTop + element.offsetHeight;
+            var spaceBottom = bottomElement - scrollBottom;
+            var heightInScreen = elementHeight - spaceBottom;
+            var percentage;
+
+            if (spaceTop < 0) {
+                heightInScreen -= spaceTop * -1;
+            }
+
+            if (spaceBottom < 0) {
+                heightInScreen -= spaceBottom * -1;
+            }
+
+            percentage = heightInScreen / screenHeight * 100;
+            percentage = percentage < 0 ? 0 : percentage;
+
+            return percentage;
+        };
+        const handleNavBar = () => {
+            let m = new Map([["about", percentWithinViewport(document.getElementById("about"))],
+            ["portfolio", percentWithinViewport(document.getElementById("portfolio"))],
+            ["warumwir", percentWithinViewport(document.getElementById("warumwir"))],
+            ["kontakt", percentWithinViewport(document.getElementById("kontakt"))]
+        ]);
+        
+
+        f = [...m.entries()].reduce((a, e ) => e[1] > a[1] ? e : a);
+        //console.log(f[0]);
+        var e= document.querySelector('[href="#' + f[0] + '"]');
+        console.log(currentElement.textContent);
+        if(currentElement != e){
+            e.setAttribute("class", "active");
+            currentElement.removeAttribute("class");
+            currentElement = e;
+        }
+
+
+
+
+        };
+
+        window.addEventListener("scroll", handleNavBar);
+        
+
+
+
+    </script>
+</body>
+
+</html>
