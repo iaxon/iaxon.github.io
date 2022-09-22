@@ -1,0 +1,51 @@
+@import '_colors.scss';
+
+
+@media ( min-width: 720px ) {
+    .Navigation{
+        display:block;
+        font-size: 25px;
+        line-height: 1.2;
+        letter-spacing: 0.351em;
+        font-style: normal;
+        font-weight: 300;
+    }
+    .Navigation {
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            padding-bottom: 10pt;
+        }
+        a:link{
+            color:$color-highlight1;
+            text-align: left;
+            right: 0vw;
+            //font-size: 20pt;
+            text-decoration: none;
+            
+        }
+
+        a:visited{
+            color:$color-highlight1;
+
+        }
+        a.active{
+            color:$color-active;
+        }
+        a:hover{
+            color: $color-highlight3;
+        }
+        z-index : 2;
+        margin-top: 15vh;
+        width: 20vw;
+        height: 40vh;
+        padding-left: 4vw;
+        position: fixed;
+        text-align: left;
+        
+        
+    }
+}

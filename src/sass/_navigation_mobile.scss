@@ -1,32 +1,43 @@
 @import '_colors.scss';
+
+.Navigation {
+    display: none;
+
+}
+
 .Navigation {
     ul {
         list-style-type: none;
         margin: 0;
         padding: 0;
-      }
-      li{
+    }
+
+    li {
         padding-bottom: 10pt;
-      }
-    a:link{
-        color:$color-highlight1;
+    }
+
+    a:link {
+        color: $color-highlight1;
         text-align: left;
         right: 0vw;
-        font-size: 20pt;
+        //font-size: 20pt;
         text-decoration: none;
-        
-    }
-
-    a:visited{
-        color:$color-highlight1;
 
     }
-    a.active{
-        color:black;
+
+    a:visited {
+        color: $color-highlight1;
+
     }
-    a:hover{
+
+    a.active {
+        color: $color-active;
+    }
+
+    a:hover {
         color: $color-highlight3;
     }
+
     z-index : 2;
     margin-top: 15vh;
     width: 20vw;
@@ -34,6 +45,6 @@
     padding-left: 4vw;
     position: fixed;
     text-align: left;
-    
-    
+
+
 }

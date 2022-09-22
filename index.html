@@ -1,7 +1,11 @@
+<!DOCTYPE html>
 <html>
 
 <head>
     <link rel="stylesheet" href="./public/css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
 
 </head>
 
@@ -29,12 +33,41 @@
     </div>
     <div class="Section" id="portfolio">
         <div class="bg-decoration"></div>
-        <div class="CardWrapper">
+        <!--
+                    <div class="CardWrapper">
             <div class="Card"><i>//TODO</i></div>
             <div class="Card"><i>//TODO</i></div>
             <div class="Card"><i>//TODO</i></div>
             <div class="Card"><i>//TODO</i></div>
         </div>
+    -->
+
+        <!-- Slider main container -->
+        <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">Slide 1</div>
+                <div class="swiper-slide">Slide 2</div>
+                <div class="swiper-slide">Slide 3</div>
+                ...
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- If we need scrollbar 
+    <div class="swiper-scrollbar"></div> -->
+        </div>
+
+
+
+
+    </div>
+
     </div>
     <div class="Section" id="warumwir">
         <div class="bg-decoration"></div>
@@ -74,22 +107,23 @@
         </div>
 
     </div>
+
     <script>
-        
-        window.onload = function(){
+
+        window.onload = function () {
 
             let m = new Map([["about", percentWithinViewport(document.getElementById("about"))],
             ["portfolio", percentWithinViewport(document.getElementById("portfolio"))],
             ["warumwir", percentWithinViewport(document.getElementById("warumwir"))],
             ["kontakt", percentWithinViewport(document.getElementById("kontakt"))]
 
-        ]);
-        
+            ]);
 
-        f = [...m.entries()].reduce((a, e ) => e[1] > a[1] ? e : a);
-        currentElement = document.querySelector('[href="#' + f[0] + '"]');
-        currentElement.setAttribute("class", "active");
-        console.log("loaded");
+
+            f = [...m.entries()].reduce((a, e) => e[1] > a[1] ? e : a);
+            currentElement = document.querySelector('[href="#' + f[0] + '"]');
+            currentElement.setAttribute("class", "active");
+            console.log("loaded");
         }
         var percentWithinViewport = function (element) {
 
@@ -122,18 +156,18 @@
             ["portfolio", percentWithinViewport(document.getElementById("portfolio"))],
             ["warumwir", percentWithinViewport(document.getElementById("warumwir"))],
             ["kontakt", percentWithinViewport(document.getElementById("kontakt"))]
-        ]);
-        
+            ]);
 
-        f = [...m.entries()].reduce((a, e ) => e[1] > a[1] ? e : a);
-        //console.log(f[0]);
-        var e= document.querySelector('[href="#' + f[0] + '"]');
-        console.log(currentElement.textContent);
-        if(currentElement != e){
-            e.setAttribute("class", "active");
-            currentElement.removeAttribute("class");
-            currentElement = e;
-        }
+
+            f = [...m.entries()].reduce((a, e) => e[1] > a[1] ? e : a);
+            //console.log(f[0]);
+            var e = document.querySelector('[href="#' + f[0] + '"]');
+            console.log(currentElement.textContent);
+            if (currentElement != e) {
+                e.setAttribute("class", "active");
+                currentElement.removeAttribute("class");
+                currentElement = e;
+            }
 
 
 
@@ -141,10 +175,39 @@
         };
 
         window.addEventListener("scroll", handleNavBar);
-        
 
 
 
+
+    </script>
+    <script>const swiper = new Swiper('.swiper', {
+
+            effect: "cards",
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
+
+            // If we need pagination
+            pagination: {
+                el: '.swiper-pagination',
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            autoplay: {
+    delay: 3500,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
+  },
+
+            // And if we need scrollbar
+            //scrollbar: {
+            //el: '.swiper-scrollbar',
+            //},
+        });
     </script>
 </body>
 
